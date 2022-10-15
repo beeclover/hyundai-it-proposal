@@ -1,10 +1,10 @@
-import type { NextPage } from 'next';
+import { useState } from 'react'
 import LogoAnimation from 'comp/logo-animation/logo-animation'
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useWindowSize } from 'react-use';
 import SceneProvider from 'comp/provider/scene'
 
-const Home: NextPage = () => {
+function App() {
   const { scrollY } = useScroll();
   const { width } = useWindowSize();
   const maxWidth1 = useTransform(scrollY, [0, 500], [1170, width]);
@@ -30,4 +30,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default App

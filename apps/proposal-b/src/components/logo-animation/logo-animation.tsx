@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
-import { SceneContext } from 'comp/provider/scene'
+import { SceneContext } from 'comp/provider/scene';
+import styled from '@emotion/styled'
 
 const LogoAnimation = () => {
   const { scene, increment } = useContext(SceneContext);
@@ -128,10 +129,10 @@ const LogoAnimation = () => {
           }}
           className='text-center leading-[1.26] relative'
         >
-          <div className='text-center font-ng text-[74px] font-bold tracking-[-1.48px]'>
+          <TwistText className='text-center font-ng text-[74px] font-bold tracking-[-1.48px]'>
             Look beyond the border,<br />
             Evolve your life
-          </div>
+          </TwistText>
         </motion.div>
       }
     </AnimatePresence>
@@ -139,3 +140,7 @@ const LogoAnimation = () => {
 }
 
 export default LogoAnimation
+
+const TwistText = styled.div`
+  mix-blend-mode: difference;
+`;
