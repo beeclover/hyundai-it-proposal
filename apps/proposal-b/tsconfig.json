@@ -22,7 +22,13 @@
     "paths": {
       "comp/*": [
         "./src/components/*"
-      ]
+      ],
+      "hooks/*": [
+        "./src/hooks/*"
+      ],
+      "pages/*": [
+        "./src/pages/*"
+      ],
     }
   },
   "include": [
