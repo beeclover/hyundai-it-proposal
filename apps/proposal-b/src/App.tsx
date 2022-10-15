@@ -1,32 +1,71 @@
-import { useState } from 'react'
-import LogoAnimation from 'comp/logo-animation/logo-animation'
+import { useContext } from 'react'
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useWindowSize } from 'react-use';
-import SceneProvider from 'comp/provider/scene'
+import { useWindowSize, useLockBodyScroll, useToggle } from 'react-use';
+import LogoAnimation from 'comp/logo-animation/logo-animation'
+import Copyright from 'comp/logo-animation/copyright'
+import { SceneContext } from 'comp/provider/scene';
 
 function App() {
-  const { scrollY } = useScroll();
+  const [locked, toggleLocked] = useToggle(true)
   const { width } = useWindowSize();
-  const maxWidth1 = useTransform(scrollY, [0, 500], [1170, width]);
-  const height = useTransform(scrollY, [0, 500], ['37vh', '100vh']);
+  const { scene, increment } = useContext(SceneContext);
+
+  useLockBodyScroll(locked);
+
+  const variants = {
+    stop: {
+      maxWidth: '1170px',
+      height: '37vh'
+    },
+    full: {
+      maxWidth: `${width}px`,
+      height: '100vh'
+    }
+  }
+
+  const copyVariants = {
+    initial: {
+      opacity: 0,
+    },
+    pin: {
+      opacity: 1,
+    },
+    hide: {
+      opacity: 0,
+    },
+  }
+
   return (
-    <SceneProvider>
+    <>
       <div className="fixed w-full h-full flex justify-center items-center">
         <LogoAnimation />
       </div>
       <div className='pt-[300px]'></div>
       <div className="pb-[94px]"></div>
       <motion.div
-        style={{
-          maxWidth: maxWidth1,
-          height: height
+        initial={'stop'}
+        variants={variants}
+        animate={scene >= 3 ? 'full' : 'stop'}
+        transition={{ type: "spring", duration: 0.8, delay: 0.3 }}
+        onAnimationComplete={() => {
+          if (scene >= 3) {
+            increment();
+          }
         }}
         className="fixed w-full left-1/2 bottom-0 -translate-x-1/2"
       >
         <img src="/img/it-td-01670022388.png" alt="" className='w-full h-full absolute object-cover' />
       </motion.div>
+      <motion.div
+        className="fixed w-full h-full flex justify-center items-center top-0"
+        variants={copyVariants}
+        initial={'initial'}
+        animate={scene == 4 ? 'pin' : 'hide'}
+      >
+        <Copyright isDark={true} />
+      </motion.div>
       <div className="pb-[1000px]"></div>
-    </SceneProvider>
+    </>
   )
 }
 

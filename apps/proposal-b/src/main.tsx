@@ -2,9 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
+import SceneProvider from 'comp/provider/scene'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <SceneProvider>
+      <App />
+    </SceneProvider>
   </React.StrictMode>
 )
