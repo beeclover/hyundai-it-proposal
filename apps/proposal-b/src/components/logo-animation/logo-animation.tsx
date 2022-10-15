@@ -1,36 +1,21 @@
 import React from 'react'
-import { useSpring, animated, config } from 'react-spring';
+import { motion, useSpring } from 'framer-motion';
 
 const LogoAnimation = () => {
-  const wrapperStyle = useSpring({
-    from: { width: '0px' },
-    to: { width: '370.1px' },
-    config: config.gentle,
-    delay: 500
-  })
-
-  const tAnimation = useSpring({
-    from: { width: '0px' },
-    to: { width: '49.845px' },
-    config: config.gentle,
-    delay: 500 + 250
-  })
-
-  const logoAni = useSpring({
-    from: { opacity: '1' },
-    to: { opacity: '0' },
-    config: config.gentle,
-    delay: 1500
-  })
-  const copyrightAni = useSpring({
-    from: { opacity: '0' },
-    to: { opacity: '1' },
-    config: config.gentle,
-    delay: 2000
-  })
   return (
     <div className='relative flex justify-center'>
-      <animated.div style={logoAni} className='flex absolute top-[16px]'>
+      <motion.div
+        initial={{
+          opacity: 1,
+        }}
+        animate={{
+          opacity: 0,
+          transition: {
+            delay: 1.5
+          }
+        }}
+        className='flex absolute top-[16px]'
+      >
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="50.01" height="57.091" viewBox="0 0 50.01 57.091">
             <path d="M195.135 337.666v21.675H171.3v-21.675h-13.083v57.091H171.3v-22.97h23.834v22.97h13.092v-57.091h-13.091z" transform="translate(-158.217 -337.666)" style={{
@@ -38,7 +23,18 @@ const LogoAnimation = () => {
             }} />
           </svg>
         </div>
-        <animated.div style={wrapperStyle} className="flex overflow-hidden">
+        <motion.div
+          initial={{
+            width: 0,
+          }}
+          animate={{
+            width: '370.1px',
+            transition: {
+              delay: 0.5
+            }
+          }}
+          className="flex overflow-hidden"
+        >
           <div className="ml-[5.3px] mr-[10.1px]">
             <svg xmlns="http://www.w3.org/2000/svg" width="58.344" height="57.091" viewBox="0 0 58.344 57.091">
               <path d="m234.506 337.666-13.8 22.619-13.638-22.619h-15.455l22.527 37.32v19.771h13.1v-19.771l22.717-37.32h-15.451z" transform="translate(-191.613 -337.666)" style={{
@@ -81,7 +77,7 @@ const LogoAnimation = () => {
               }} d="M0 0h13.084v57.091H0z" />
             </svg>
           </div>
-        </animated.div>
+        </motion.div>
         <div className='ml-[22.9px]'>
           <svg xmlns="http://www.w3.org/2000/svg" width="13.084" height="57.091" viewBox="0 0 13.084 57.091">
             <path style={{
@@ -89,20 +85,42 @@ const LogoAnimation = () => {
             }} d="M0 0h13.084v57.091H0z" />
           </svg>
         </div>
-        <animated.div style={tAnimation} className="overflow-hidden ml-[9.6px]">
+        <motion.div
+          initial={{
+            width: 0,
+          }}
+          animate={{
+            width: '49.845px',
+            transition: {
+              delay: 0.6
+            }
+          }}
+          className="overflow-hidden ml-[9.6px]"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="49.845" height="57.107" viewBox="0 0 49.845 57.107">
             <path d="M479.043 337.655H429.2v12.411h18.389v44.7h13.1v-44.7h18.355z" transform="translate(-429.198 -337.655)" style={{
               fill: "#00306d"
             }} />
           </svg>
-        </animated.div>
-      </animated.div>
-      <animated.div style={copyrightAni} className='flex text-center leading-[1.26] relative'>
+        </motion.div>
+      </motion.div>
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+          transition: {
+            delay: 2
+          }
+        }}
+        className='flex text-center leading-[1.26] relative'
+      >
         <div className='text-center font-ng text-[74px] font-bold tracking-[-1.48px]'>
           Look beyond the border,<br />
           Evolve your life
         </div>
-      </animated.div>
+      </motion.div>
     </div >
   )
 }
