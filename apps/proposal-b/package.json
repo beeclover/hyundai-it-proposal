@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --base=/proposal-b/",
-    "preview": "ls -al && ./node_modules/.bin/vite preview"
+    "preview": "./node_modules/.bin/vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
