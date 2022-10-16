@@ -50,9 +50,9 @@ function App() {
         >
           <motion.img
             className='w-full h-full absolute bg-center object-cover'
-            src="/img/it-td-01670022388.jpg"
-            srcSet="/img/it-td-01670022388@2x.jpg 2x,
-                /img/it-td-01670022388@3x.jpg 3x"
+            src={`${import.meta.env.BASE_URL}img/it-td-01670022388.jpg`}
+            srcSet={`${import.meta.env.BASE_URL}img/it-td-01670022388@2x.jpg 2x,
+                ${import.meta.env.BASE_URL}img/it-td-01670022388@3x.jpg 3x`}
             alt=""
           />
           <motion.img
@@ -74,17 +74,17 @@ function App() {
             }}
             initial={'initial'}
             animate={scene == 3 && 'animate'}
-            src="/img/it-td-01670022388.jpg"
-            srcSet="/img/it-td-01670022388@2x.jpg 2x,
-                /img/it-td-01670022388@3x.jpg 3x"
+            src={`${import.meta.env.BASE_URL}img/it-td-01670022388.jpg`}
+            srcSet={`${import.meta.env.BASE_URL}img/it-td-01670022388@2x.jpg 2x,
+                ${import.meta.env.BASE_URL}img/it-td-01670022388@3x.jpg 3x`}
             alt=""
           />
           <motion.img
             className='w-full h-full absolute object-cover'
             style={{ opacity: useTransform(scrollY, [0, 500], ['0', '1']) }}
-            src="/img/adobe-stock-85597314.jpg"
-            srcSet="/img/adobe-stock-85597314@2x.jpg 2x,
-                /img/adobe-stock-85597314@3x.jpg 3x"
+            src={`${import.meta.env.BASE_URL}img/adobe-stock-85597314.jpg`}
+            srcSet={`${import.meta.env.BASE_URL}img/adobe-stock-85597314@2x.jpg 2x,
+                ${import.meta.env.BASE_URL}img/adobe-stock-85597314@3x.jpg 3x`}
             alt=""
           />
           <motion.div
