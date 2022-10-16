@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 
 export const SceneContext = createContext({
   scene: 0,
-  increment: () => { }
+  increment: () => { },
 });
 
 const SceneProvider = ({ children }: { children: React.ReactNode }) => {
