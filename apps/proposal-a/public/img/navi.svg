@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="84" viewBox="0 0 1920 84">
+    <path data-name="사각형 1" style="fill:#0c0c0c;opacity:.5" d="M0 0h1920v84H0z"/>
+    <path data-name="사각형 2" transform="translate(0 83)" style="opacity:.1;fill:#fff" d="M0 0h1920v1H0z"/>
+    <g style="opacity:.8">
+        <text transform="translate(1236 49)" style="font-size:20px;font-family:AppleSDGothicNeoR,Apple SD Gothic Neo;fill:#fff"><tspan x="0" y="0">회사소개</tspan></text>
+        <text transform="translate(1112 47)" style="font-size:20px;font-family:AppleSDGothicNeoR,Apple SD Gothic Neo;fill:#fff"><tspan x="0" y="0">뉴스룸</tspan></text>
+        <text transform="translate(971 47)" style="font-size:20px;font-family:AppleSDGothicNeoR,Apple SD Gothic Neo;fill:#fff"><tspan x="0" y="0">고객지원</tspan></text>
+        <text transform="translate(864 47)" style="font-size:20px;font-family:AppleSDGothicNeoR,Apple SD Gothic Neo;fill:#fff"><tspan x="0" y="0">구매</tspan></text>
+        <text transform="translate(723 47)" style="font-size:20px;font-family:AppleSDGothicNeoR,Apple SD Gothic Neo;fill:#fff"><tspan x="0" y="0">조달제품</tspan></text>
+        <text transform="translate(616 47)" style="font-size:20px;font-family:AppleSDGothicNeoR,Apple SD Gothic Neo;fill:#fff"><tspan x="0" y="0">제품</tspan></text>
+    </g>
+    <g style="opacity:.8">
+        <text transform="translate(1766 47)" style="font-size:16px;font-family:AppleSDGothicNeoM,Apple SD Gothic Neo;fill:#fff"><tspan x="0" y="0">ENG</tspan></text>
+        <path data-name="사각형 3" transform="translate(1815 30)" style="opacity:.2;fill:#fff" d="M0 0h1v24H0z"/>
+        <g data-name="그룹 1">
+            <g data-name="타원 1" transform="translate(1836 30)" style="stroke:#fff;stroke-linecap:round;stroke-width:2px;fill:none">
+                <circle cx="10" cy="10" r="10" style="stroke:none"/>
+                <circle cx="10" cy="10" r="9" style="fill:none"/>
+            </g>
+            <path data-name="선 1" transform="translate(1853 47)" style="stroke:#fff;stroke-linecap:round;stroke-width:2px;fill:none" d="M6 6 0 0"/>
+        </g>
+    </g>
+    <g>
+        <path data-name="패스 1" d="M171.617 359.041v7.591h-8.651v-7.591h-4.749v19.994h4.749v-8.045h8.651v8.044h4.752v-19.993h-4.752z" transform="translate(-98.217 -327.034)" style="fill:#fbfbfb"/>
+        <path data-name="패스 2" d="m185.733 359.041-5.01 7.921-4.95-7.921h-5.608l8.176 13.07v6.924h4.759v-6.924l8.246-13.07h-5.608z" transform="translate(-90.101 -327.034)" style="fill:#fbfbfb"/>
+        <path data-name="패스 3" d="M188.008 379.033a3.852 3.852 0 0 1-4.094-4.091v-15.9h4.751v14.652a1.03 1.03 0 0 0 1.058.986h6.528a1.027 1.027 0 0 0 1.06-.986V359.04h4.749v15.9a4 4 0 0 1-1.123 2.974 4.04 4.04 0 0 1-2.971 1.117z" transform="translate(-80.995 -327.035)" style="fill:#fbfbfb"/>
+        <path data-name="패스 4" d="M224.186 373.692a.98.98 0 0 1-1.055.984h-7.586V363.4h7.586a.979.979 0 0 1 1.055.981zm3.631-13.527a4.031 4.031 0 0 0-2.967-1.124h-14.062v19.991h14.061a3.844 3.844 0 0 0 4.086-4.091v-11.807a4.029 4.029 0 0 0-1.118-2.969" transform="translate(-62.985 -327.034)" style="fill:#fbfbfb"/>
+        <path data-name="사각형 26" transform="translate(193.105 32.006)" style="fill:#fbfbfb" d="M0 0h4.749v19.994H0z"/>
+        <path data-name="패스 5" d="M230.016 363.39a1.033 1.033 0 0 0-.994 1.051v4.1h8.652v-4.183a.953.953 0 0 0-1.073-.956zm8.439-4.353c3.972 0 3.988 3.992 3.988 3.992v16h-4.769v-6.19h-8.652v6.19h-4.751v-15.851a3.9 3.9 0 0 1 3.931-4.141z" transform="translate(-53.95 -327.037)" style="fill:#fbfbfb"/>
+        <path data-name="패스 6" d="M215.5 359.037h-4.761v11.411a.359.359 0 0 1-.359.361.368.368 0 0 1-.307-.156L203.5 360.53a3.352 3.352 0 0 0-6.141 1.862v16.644h4.747V367.6a.361.361 0 0 1 .667-.19l6.578 10.126a3.355 3.355 0 0 0 6.148-1.852z" transform="translate(-71.986 -327.037)" style="fill:#fbfbfb"/>
+        <path data-name="사각형 27" transform="translate(213.65 32.006)" style="fill:#fbfbfb" d="M0 0h4.755v19.994H0z"/>
+        <path data-name="패스 7" d="M273.25 359.037h-18.092v4.347h6.675v15.653h4.755v-15.654h6.663z" transform="translate(-33.25 -327.037)" style="fill:#fbfbfb"/>
+    </g>
+</svg>
