@@ -50,10 +50,11 @@ function S1({ play }: { play: boolean }) {
         })
     });
     return () => ctx.revert();
-  }, [])
+  }, [timeline])
 
   useEffect(() => {
     play ? timeline.play() : timeline.reverse()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [play])
 
   return (
