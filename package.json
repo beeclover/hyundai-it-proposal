@@ -5,9 +5,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "a": "yarn workspace proposal-a",
     "b": "yarn workspace proposal-b"
   },
   "workspaces": [
-    "apps/proposal-b"
+    "apps/**"
   ]
 }
