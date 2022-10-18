@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 const Img: React.FC<{
-  name: string;
+  name?: string;
   type?: 'png' | 'jpg' | 'webp' | 'svg';
+  src?: string;
   [x: string]: any;
-}> = ({ name, type = 'webp', ...props }) => {
+}> = ({ name, type = 'webp', src, ...props }) => {
+  if (!!src)
+    return <img {...{ ...props, src }} alt="" />
   if (type === 'svg')
     return <img src={`${process.env.NEXT_PUBLIC_BASEPATH}/img/${name}.${type}`} alt="" {...props} />
   return (
