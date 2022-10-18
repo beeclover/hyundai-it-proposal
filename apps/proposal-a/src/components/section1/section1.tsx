@@ -1,4 +1,3 @@
-import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Slide1 from './slide1'
 import Img from 'comp/img'
@@ -9,8 +8,8 @@ const Section1 = () => {
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
         className="relative h-[1080px]"
       >
         <SwiperSlide>
