@@ -4,6 +4,7 @@ import { Global, css } from '@emotion/react'
 import Img from 'comp/img'
 import Section1 from 'comp/section1/section1'
 import Section2 from 'comp/section2/section2'
+import Section3 from 'comp/section3/section3'
 
 const Home: NextPage = () => {
   return (
@@ -17,7 +18,8 @@ const Home: NextPage = () => {
       <Global
         styles={css`
           body {
-            background-color: black
+            background-color: black;
+            color: white;
           }
         `}
       />
@@ -27,9 +29,12 @@ const Home: NextPage = () => {
       <main>
         <Section1 />
         <Section2 />
+        <Section3 />
       </main>
       <footer>
-        <Img name="footer" className="w-full" />
+        <div className='container mx-auto xl:max-w-[2044px]'>
+          <Img name="footer" className="w-full" />
+        </div>
       </footer>
     </>
   )

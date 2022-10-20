@@ -17,7 +17,6 @@ const TextSlide = ({ play, children }: { play: boolean; children?: React.ReactNo
     defaults: { duration: 0.4 }
   }), [])
   useEffect(() => {
-    console.log(el1.current, el2.current);
     const ctx = gsap.context(() => {
       timeline1.to(el1.current, {
         transform: 'translateX(-170px) translateY(-80px)',
