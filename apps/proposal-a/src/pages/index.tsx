@@ -5,6 +5,7 @@ import Img from 'comp/img'
 import Section1 from 'comp/section1/section1'
 import Section2 from 'comp/section2/section2'
 import Section3 from 'comp/section3/section3'
+import Section4 from 'comp/section4/section4'
 
 const Home: NextPage = () => {
   return (
@@ -30,6 +31,7 @@ const Home: NextPage = () => {
         <Section1 />
         <Section2 />
         <Section3 />
+        <Section4 />
       </main>
       <footer>
         <div className='container mx-auto xl:max-w-[2044px]'>
