@@ -1,7 +1,7 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
 import gsap from 'gsap'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectCoverflow, Autoplay } from "swiper";
+import { EffectCoverflow, Autoplay } from "swiper";
 import Img from 'comp/img'
 
 
