@@ -60,36 +60,36 @@ const Section4 = () => {
       <div className='mt-[80px] relative mb-[268px]'>
         <Swiper
           grabCursor={true}
-          centeredSlides={false}
+          centeredSlides={true}
           slidesPerView={"auto"}
-          spaceBetween={500}
+          slideToClickedSlide={true}
           modules={[Controller]}
           onSwiper={setFirstSwiper}
           controller={{ control: secondSwiper }}
         >
           {[...new Array(9)].map((_, index) =>
-            <SwiperSlide key={index} style={{ width: '1200px', height: '580px' }}>
-              <Img src={`https://source.unsplash.com/1200x580?${index}`} />
+            <SwiperSlide key={index} style={{ width: '1920px', height: '580px' }}>
+              <div className="container max-w-[1920px] w-full">
+                <Img src={`https://source.unsplash.com/1200x580?${index}`} />
+              </div>
             </SwiperSlide>)}
         </Swiper>
-        <div className='absolute top-0 left-0 w-full'>
-          <div className="container mx-auto">
-            <Swiper
-              grabCursor={true}
-              centeredSlides={false}
-              slidesPerView={1}
-              spaceBetween={500}
-              effect={"fade"}
-              modules={[EffectFade, Controller]}
-              onSwiper={setSecondSwiper}
-              controller={{ control: firstSwiper }}
-            >
-              {[...new Array(9)].map((_, index) =>
-                <SwiperSlide key={index} style={{ width: '100%', height: '580px' }}>
-                  {({ isActive }) => <TextSlide play={isActive} />}
-                </SwiperSlide>)}
-            </Swiper>
-          </div>
+        <div className="absolute h-full top-0 left-1/2 -translate-x-1/2 container mx-auto">
+          <Swiper
+            grabCursor={true}
+            centeredSlides={false}
+            slidesPerView={1}
+            spaceBetween={500}
+            effect={"fade"}
+            modules={[EffectFade, Controller]}
+            onSwiper={setSecondSwiper}
+            controller={{ control: firstSwiper }}
+          >
+            {[...new Array(9)].map((_, index) =>
+              <SwiperSlide key={index} style={{ width: '100%', height: '580px' }}>
+                {({ isActive }) => <TextSlide play={isActive} />}
+              </SwiperSlide>)}
+          </Swiper>
         </div>
       </div>
     </section>
