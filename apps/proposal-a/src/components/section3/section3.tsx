@@ -172,7 +172,6 @@ const Grid1 = styled.div`
 
 const GridItem = ({ children, ...props }: { children: React.ReactNode;[x: string]: any; }) => {
   const [isHover, setIsHover] = useState(false);
-  console.log(isHover);
   return <div onMouseOver={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} {...props}>
     {children}
     <div
@@ -201,7 +200,6 @@ const GridItemSidebar = ({ play }: { play: boolean }) => {
   }, [timeline, play])
 
   useEffect(() => {
-    console.log(play);
     if (play) {
       timeline.play()
     } else {
