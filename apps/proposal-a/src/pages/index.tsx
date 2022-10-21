@@ -6,6 +6,7 @@ import Section1 from 'comp/section1/section1'
 import Section2 from 'comp/section2/section2'
 import Section3 from 'comp/section3/section3'
 import Section4 from 'comp/section4/section4'
+import MenuFixed from 'comp/menu-fixed/menu-fixed'
 
 const Home: NextPage = () => {
   return (
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
       <header className='fixed top-0 left-0 z-[90] w-full'>
         <Img name="navi" type="svg" className="w-full" />
       </header>
+      <MenuFixed />
       <main>
         <Section1 />
         <Section2 />
