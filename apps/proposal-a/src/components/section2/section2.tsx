@@ -57,67 +57,43 @@ const TextSlide = ({ play, children }: { play: boolean; children?: React.ReactNo
 }
 
 const Section2 = () => {
-  const [firstSwiper, setFirstSwiper] = useState<SwiperCore>();
-  const [secondSwiper, setSecondSwiper] = useState<SwiperCore>();
   return (
     <section>
-      <div className="relative">
-        <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          initialSlide={2}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: -160,
-            depth: 50,
-            modifier: 1,
-            slideShadows: false,
-          }}
-          pagination={true}
-          modules={[EffectCoverflow, Pagination, Controller]}
-          className="py-[323px]"
-          onSwiper={setFirstSwiper}
-          controller={{ control: secondSwiper }}
-        >
-          {[...new Array(9)].map((_, index) =>
-            <SwiperSlide key={index} style={{ width: '1020px', height: '600px' }}>
-              <Img src={`https://source.unsplash.com/1020x600?${index}`} />
-            </SwiperSlide>)}
-        </Swiper>
-        <div className="absolute top-0 w-full h-full">
-          <Swiper
-            grabCursor={true}
-            effect={"fade"}
-            fadeEffect={{
-              crossFade: true
-            }}
-            centeredSlides={true}
-            slidesPerView={1}
-            initialSlide={2}
-            pagination={false}
-            className="h-full"
-            modules={[EffectFade, Controller]}
-            onSwiper={setSecondSwiper}
-            controller={{ control: firstSwiper }}
-          >
-            {[...new Array(9)].map((_, index) =>
-              <SwiperSlide key={index} className={`w-full h-full flex justify-center items-center`}>
-                {({ isActive }) => (
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        initialSlide={2}
+        slideToClickedSlide={true}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: -160,
+          depth: 50,
+          modifier: 1,
+          slideShadows: false,
+        }}
+        modules={[EffectCoverflow]}
+        className="py-[323px]"
+      >
+        {[...new Array(9)].map((_, index) =>
+          <SwiperSlide key={index} style={{ width: '1020px', height: '600px' }}>
+            {({ isActive }) => (
+              <>
+                <Img src={`https://source.unsplash.com/1020x600?${index}`} />
+                <div className="absolute w-full h-full top-0 left-0 flex justify-center">
                   <div className='w-full h-full max-w-[1020px] max-h-[600px]'>
                     <TextSlide play={isActive}>
                       <div className='w-full h-full flex justify-center items-center'>
-                        <h1 className='text-[100px] text-red-500'>{index}</h1>
                       </div>
                     </TextSlide>
                   </div>
-                )}
-              </SwiperSlide>)}
-          </Swiper>
-        </div>
-      </div>
-    </section>
+                </div>
+              </>
+            )}
+          </SwiperSlide>)}
+      </Swiper>
+    </section >
   )
 }
 
