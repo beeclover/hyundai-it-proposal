@@ -1,10 +1,58 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
 import gsap from 'gsap'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectCoverflow, Pagination, Controller, EffectFade } from "swiper";
+import SwiperCore, { EffectCoverflow, Autoplay } from "swiper";
 import Img from 'comp/img'
 
-const TextSlide = ({ play, children }: { play: boolean; children?: React.ReactNode }) => {
+
+const Section2 = () => {
+  return (
+    <section>
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        slideToClickedSlide={true}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: -160,
+          depth: 50,
+          modifier: 1,
+          slideShadows: false,
+        }}
+        loop={true}
+        modules={[EffectCoverflow, Autoplay]}
+        autoplay={{
+          delay: 3000,   // 시간 설정
+          disableOnInteraction: false,  // false로 설정하면 스와이프 후 자동 재생이 비활성화 되지 않음
+        }}
+        className="py-[323px]"
+      >
+        {[...new Array(3)].map((_, index) =>
+          <SwiperSlide key={index} style={{ width: '1020px', height: '600px' }}>
+            {({ isActive }) => (
+              <>
+                <Img name={`s2-s${index + 1}`} />
+                <div className="absolute w-full h-full top-0 left-0 flex justify-center">
+                  <div className='w-full h-full max-w-[1020px] max-h-[600px]'>
+                    <TextSlide play={isActive} index={index + 1}>
+                      <div className='w-full h-full flex justify-center items-center'>
+                      </div>
+                    </TextSlide>
+                  </div>
+                </div>
+              </>
+            )}
+          </SwiperSlide>)}
+      </Swiper>
+    </section >
+  )
+}
+
+export default Section2
+
+const TextSlide = ({ play, children, index }: { play: boolean; children?: React.ReactNode; index: number }) => {
   const el1 = useRef(null);
   const el2 = useRef(null);
 
@@ -47,54 +95,11 @@ const TextSlide = ({ play, children }: { play: boolean; children?: React.ReactNo
 
   return <div className='w-full h-full relative'>
     <div ref={el1} className="absolute top-0 left-0" style={{ transform: 'translateX(-170px) translateY(-50px)', opacity: 0 }}>
-      <Img name="s2-01-01" />
+      <Img name={`s2-s${index}1`} />
     </div>
     {children}
     <div ref={el2} className="absolute bottom-0 right-0" style={{ transform: 'translateX(170px) translateY(110px)', opacity: 0 }}>
-      <Img name="s2-01-02" />
+      <Img name={`s2-s${index}2`} />
     </div>
   </div>
 }
-
-const Section2 = () => {
-  return (
-    <section>
-      <Swiper
-        effect={"coverflow"}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={"auto"}
-        initialSlide={2}
-        slideToClickedSlide={true}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: -160,
-          depth: 50,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        modules={[EffectCoverflow]}
-        className="py-[323px]"
-      >
-        {[...new Array(9)].map((_, index) =>
-          <SwiperSlide key={index} style={{ width: '1020px', height: '600px' }}>
-            {({ isActive }) => (
-              <>
-                <Img src={`https://source.unsplash.com/1020x600?${index}`} />
-                <div className="absolute w-full h-full top-0 left-0 flex justify-center">
-                  <div className='w-full h-full max-w-[1020px] max-h-[600px]'>
-                    <TextSlide play={isActive}>
-                      <div className='w-full h-full flex justify-center items-center'>
-                      </div>
-                    </TextSlide>
-                  </div>
-                </div>
-              </>
-            )}
-          </SwiperSlide>)}
-      </Swiper>
-    </section >
-  )
-}
-
-export default Section2
