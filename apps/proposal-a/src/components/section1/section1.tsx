@@ -13,7 +13,7 @@ const Section1 = () => {
         className="relative h-[1080px]"
       >
         <SwiperSlide>
-          <Slide1 play={true} />
+          {({ isActive }) => <Slide1 play={isActive} />}
         </SwiperSlide>
         <SwiperSlide>
           <Img name="s1-01" />
