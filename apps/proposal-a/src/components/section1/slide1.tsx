@@ -23,11 +23,6 @@ function Slide1({ play }: { play: boolean }) {
       });
       timeline
         .to(imgWrapRef.current, {
-          transform: 'translateY(0) scale(0.6)',
-          ease: 'power1.easeInOut',
-          delay: 0.3
-        })
-        .to(imgWrapRef.current, {
           clipPath: ((x, y): string => `polygon(
             ${50 - x / 2}% ${50 - y / 2}%,
             ${50 + x / 2}% ${50 - y / 2}%,
