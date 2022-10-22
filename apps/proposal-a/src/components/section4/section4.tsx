@@ -1,10 +1,10 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
 import gsap from 'gsap'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectFade, Controller } from "swiper";
+import SwiperCore from "swiper";
 import Img from 'comp/img'
 
-const TextSlide = ({ play }: { play: boolean }) => {
+const TextSlide = ({ play, name }: { play: boolean; name: string; }) => {
   const el1 = useRef(null);
   const timeline1 = useMemo(() => gsap.timeline({
     paused: true,
@@ -32,9 +32,9 @@ const TextSlide = ({ play }: { play: boolean }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [play])
 
-  return <div className='w-full h-full flex justify-end items-center pr-[100px]'>
-    <div ref={el1} style={{ opacity: 0, transform: 'translateY(30px)' }}>
-      <Img name="124" style={{ height: '251px' }} />
+  return <div className='w-full h-full flex justify-end items-center'>
+    <div ref={el1} className="px-[100px]" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+      <Img name={name} style={{ height: '251px' }} />
     </div>
   </div>
 }
@@ -63,34 +63,20 @@ const Section4 = () => {
           centeredSlides={true}
           slidesPerView={"auto"}
           slideToClickedSlide={true}
-          modules={[Controller]}
-          onSwiper={setFirstSwiper}
-          controller={{ control: secondSwiper }}
         >
-          {[...new Array(9)].map((_, index) =>
+          {[...new Array(3)].map((_, index) =>
             <SwiperSlide key={index} style={{ width: '1920px', height: '580px' }}>
-              <div className="container max-w-[1920px] w-full">
-                <Img src={`https://source.unsplash.com/1200x580?${index}`} />
+              {({ isActive }) => <div className="container max-w-[1920px] w-full flex">
+                <div className="relative">
+                  <Img name={`s4-s${index + 1}1`} />
+                  <div className='absolute right-0 translate-x-full top-0 flex h-full items-center'>
+                    <TextSlide play={isActive} name={`s4-s${index + 1}2`} />
+                  </div>
+                </div>
               </div>
+              }
             </SwiperSlide>)}
         </Swiper>
-        <div className="absolute h-full top-0 left-1/2 -translate-x-1/2 container mx-auto">
-          <Swiper
-            grabCursor={true}
-            centeredSlides={false}
-            slidesPerView={1}
-            spaceBetween={500}
-            effect={"fade"}
-            modules={[EffectFade, Controller]}
-            onSwiper={setSecondSwiper}
-            controller={{ control: firstSwiper }}
-          >
-            {[...new Array(9)].map((_, index) =>
-              <SwiperSlide key={index} style={{ width: '100%', height: '580px' }}>
-                {({ isActive }) => <TextSlide play={isActive} />}
-              </SwiperSlide>)}
-          </Swiper>
-        </div>
       </div>
     </section>
   )
