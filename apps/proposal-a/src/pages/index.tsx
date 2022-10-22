@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       <Global
         styles={css`
           body {
-            background-color: black;
+            background-color: #0A0A0A;
             color: white;
           }
         `}
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
         <Section4 />
       </main>
       <footer>
-        <div className='container mx-auto xl:max-w-[1920px]'>
+        <div className='container mx-auto xl:max-w-[1440px]'>
           <Img name="footer" className="w-full" />
         </div>
       </footer>
