@@ -63,6 +63,7 @@ const Section4 = () => {
           centeredSlides={true}
           slidesPerView={"auto"}
           slideToClickedSlide={true}
+          loop={true}
         >
           {[...new Array(3)].map((_, index) =>
             <SwiperSlide key={index} style={{ width: '1920px', height: '580px' }}>
