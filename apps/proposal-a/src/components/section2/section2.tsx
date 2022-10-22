@@ -8,7 +8,7 @@ import Img from 'comp/img'
 const Section2 = () => {
   return (
     <section>
-      <div className="container max-w-[2440px] mx-auto">
+      <div className="container xl:max-w-[2440px] mx-auto">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}

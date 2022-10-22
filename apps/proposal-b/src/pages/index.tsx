@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="max-w-[1920px] mx-auto">
+      <div className="xl:max-w-[1920px] mx-auto">
         <img src={`${process.env.NEXT_PUBLIC_BASEPATH}/img/01.jpg`} alt="" />
       </div>
     </>

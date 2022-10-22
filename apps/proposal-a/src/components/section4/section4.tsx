@@ -1,8 +1,8 @@
-import { useState, useRef, useMemo, useEffect } from 'react'
+import { useRef, useMemo, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore from "swiper";
-import Img from 'comp/img'
+import Img from 'comp/img';
+import clsx from 'clsx'
 
 const TextSlide = ({ play, name }: { play: boolean; name: string; }) => {
   const el1 = useRef(null);
@@ -33,13 +33,15 @@ const TextSlide = ({ play, name }: { play: boolean; name: string; }) => {
   }, [play])
 
   return <div className='w-full h-full flex justify-end items-center'>
-    <div ref={el1} className="px-[100px]" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+    <div ref={el1} className="px-[48px]" style={{ opacity: 0, transform: 'translateY(30px)' }}>
       <Img name={name} style={{ height: '251px' }} />
     </div>
   </div>
 }
 
 const Section4 = () => {
+  const [slideActiveIndex, setSlideActiveIndex] = useState(0);
+
   return (
     <section>
       <div className="container mx-auto mt-[278px]">
@@ -55,20 +57,25 @@ const Section4 = () => {
           <div>아웃도어</div>
         </div>
       </div>
-      <div className='mt-[80px] relative mb-[268px]'>
+      <div className='mt-[80px] relative mb-[268px] container mx-auto xl:max-w-[2440px]'>
         <Swiper
           grabCursor={true}
-          centeredSlides={true}
           slidesPerView={"auto"}
           slideToClickedSlide={true}
           loop={true}
+          onSlideChange={(swiper) => { setSlideActiveIndex(swiper.realIndex) }}
         >
           {[...new Array(3)].map((_, index) =>
-            <SwiperSlide key={index} style={{ width: '1920px', height: '580px' }}>
-              {({ isActive }) => <div className="container max-w-[1920px] w-full flex">
+            <SwiperSlide key={index} style={{ width: `${1920 - 240}px`, height: '580px' }} className={clsx({ 'z-20': slideActiveIndex == index })} >
+              {({ isActive }) => <div className="container max-w-[calc(1920px-240px)] w-full flex">
                 <div className="relative">
-                  <Img name={`s4-s${index + 1}1`} />
-                  <div className='absolute right-0 translate-x-full top-0 flex h-full items-center'>
+                  <div className='relative'>
+                    <Img name={`s4-s${index + 1}1`} />
+                    {!isActive && <div className='absolute w-full h-full bg-black opacity-40 top-0 left-0' />}
+                  </div>
+                  <div className={clsx(`absolute right-0 translate-x-full top-0 flex h-full items-center`, {
+                    'z-20': isActive
+                  })}>
                     <TextSlide play={isActive} name={`s4-s${index + 1}2`} />
                   </div>
                 </div>

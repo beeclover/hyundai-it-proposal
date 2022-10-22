@@ -36,7 +36,7 @@ const Home: NextPage = () => {
         <Section4 />
       </main>
       <footer>
-        <div className='container mx-auto xl:max-w-[2044px]'>
+        <div className='container mx-auto xl:max-w-[1920px]'>
           <Img name="footer" className="w-full" />
         </div>
       </footer>

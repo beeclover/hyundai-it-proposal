@@ -79,7 +79,7 @@ const Section3 = () => {
           })} */}
           <div
             className="relative group overflow-hidden"
-            style={{ gridArea: 'l1', opacity: 0 }}
+            style={{ gridArea: 'l1', opacity: 0, transform: 'translateY(30px)' }}
             ref={aniGroup1[0]}
           >
             <GridItem
@@ -91,7 +91,7 @@ const Section3 = () => {
           </div>
           <div
             className="relative group overflow-hidden"
-            style={{ gridArea: 'l2', opacity: 0 }}
+            style={{ gridArea: 'l2', opacity: 0, transform: 'translateY(30px)' }}
             ref={aniGroup1[2]}
           >
             <GridItem
@@ -104,7 +104,7 @@ const Section3 = () => {
           </div>
           <div
             className="relative group overflow-hidden"
-            style={{ gridArea: 'l3', opacity: 0 }}
+            style={{ gridArea: 'l3', opacity: 0, transform: 'translateY(30px)' }}
             ref={aniGroup1[1]}
           >
             <GridItem
@@ -117,7 +117,7 @@ const Section3 = () => {
           </div>
           <div
             className="relative group overflow-hidden"
-            style={{ gridArea: 'l4', opacity: 0 }}
+            style={{ gridArea: 'l4', opacity: 0, transform: 'translateY(30px)' }}
             ref={aniGroup2[0]}
           >
             <GridItem
@@ -130,7 +130,7 @@ const Section3 = () => {
           </div>
           <div
             className="relative group overflow-hidden"
-            style={{ gridArea: 'l5', opacity: 0 }}
+            style={{ gridArea: 'l5', opacity: 0, transform: 'translateY(30px)' }}
             ref={aniGroup2[1]}
           >
             <GridItem
@@ -143,7 +143,7 @@ const Section3 = () => {
           </div>
           <div
             className="relative group overflow-hidden"
-            style={{ gridArea: 'l6', opacity: 0 }}
+            style={{ gridArea: 'l6', opacity: 0, transform: 'translateY(30px)' }}
             ref={aniGroup2[2]}
           >
             <GridItem
