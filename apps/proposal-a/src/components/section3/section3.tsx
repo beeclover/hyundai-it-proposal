@@ -82,7 +82,9 @@ const Section3 = () => {
             style={{ gridArea: 'l1', opacity: 0 }}
             ref={aniGroup1[0]}
           >
-            <GridItem>
+            <GridItem
+              detail={<Img name="s3-s12" className="" />}
+            >
               <Img name="s3-01" className="object-cover w-full h-full" />
               <span className={GridDefaultTitleClassNames}>스마트보드</span>
             </GridItem>
@@ -92,9 +94,12 @@ const Section3 = () => {
             style={{ gridArea: 'l2', opacity: 0 }}
             ref={aniGroup1[2]}
           >
-            <GridItem>
+            <GridItem
+              type="full"
+              detail={<Img name="s3-s22" />}
+            >
               <Img name="s3-02" className="object-cover w-full h-full" />
-              <span className={GridDefaultTitleClassNames}>LED 사이니지</span>
+              <span className={GridDefaultTitleClassNames}>인도어 사이니지</span>
             </GridItem>
           </div>
           <div
@@ -102,9 +107,12 @@ const Section3 = () => {
             style={{ gridArea: 'l3', opacity: 0 }}
             ref={aniGroup1[1]}
           >
-            <GridItem>
+            <GridItem
+              type="left"
+              detail={<Img name="s3-s32" />}
+            >
               <Img name="s3-03" className="object-cover w-full h-full" />
-              <span className={GridDefaultTitleClassNames}>인도어 사이니지</span>
+              <span className={GridDefaultTitleClassNames}>LED 사이니지</span>
             </GridItem>
           </div>
           <div
@@ -112,7 +120,10 @@ const Section3 = () => {
             style={{ gridArea: 'l4', opacity: 0 }}
             ref={aniGroup2[0]}
           >
-            <GridItem>
+            <GridItem
+              type="full"
+              detail={<Img name="s3-s42" />}
+            >
               <Img name="s3-04" className="object-cover w-full h-full" />
               <span className={GridDefaultTitleClassNames}>전자교탁</span>
             </GridItem>
@@ -122,7 +133,10 @@ const Section3 = () => {
             style={{ gridArea: 'l5', opacity: 0 }}
             ref={aniGroup2[1]}
           >
-            <GridItem>
+            <GridItem
+              type="full"
+              detail={<Img name="s3-s52" />}
+            >
               <Img name="s3-05" className="object-cover w-full h-full" />
               <span className={GridDefaultTitleClassNames}>조달제품</span>
             </GridItem>
@@ -132,7 +146,10 @@ const Section3 = () => {
             style={{ gridArea: 'l6', opacity: 0 }}
             ref={aniGroup2[2]}
           >
-            <GridItem>
+            <GridItem
+              type="left"
+              detail={<Img name="s3-s62" />}
+            >
               <Img name="s3-06" className="object-cover w-full h-full" />
               <span className={GridDefaultTitleClassNames}>아웃도어 사이니지</span>
             </GridItem>
@@ -152,14 +169,14 @@ const Grid1 = styled.div`
     "l1 l1 z0"
     "l1 l1 z0"
     "l1 l1 z0"
-    "l1 l1 l3"
-    "l1 l1 l3"
-    "l2 l2 l3"
-    "l2 l2 l3"
-    "l2 l2 l4"
-    "l2 l2 l4"
-    "l2 l2 l4"
-    "l2 l2 l4"
+    "l1 l1 l2"
+    "l1 l1 l2"
+    "l3 l3 l2"
+    "l3 l3 l2"
+    "l3 l3 l4"
+    "l3 l3 l4"
+    "l3 l3 l4"
+    "l3 l3 l4"
     "l5 z1 z1"
     "l5 z1 z1"
     "l5 l6 l6"
@@ -170,19 +187,18 @@ const Grid1 = styled.div`
     "z2 l6 l6"
 `;
 
-const GridItem = ({ children, ...props }: { children: React.ReactNode;[x: string]: any; }) => {
+const GridItem = ({ children, type = 'right', detail, ...props }: { children: React.ReactNode;[x: string]: any; type?: 'left' | 'right' | 'full'; detail: React.ReactNode }) => {
   const [isHover, setIsHover] = useState(false);
   return <div onMouseOver={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} {...props}>
     {children}
-    <div
-      className='absolute h-full right-0 top-0 bg-black bg-opacity-50 w-1/2 opacity-0 group-hover:opacity-100 z-20 transition-all duration-1000 flex justify-center items-center px-[40px]'
-    >
-      <Img name="s2-s11" />
-    </div>
+    <GridItemOverlay play={isHover} type={type}>
+      {detail}
+    </GridItemOverlay>
   </div>
 }
-const GridItemSidebar = ({ play }: { play: boolean }) => {
-  const sideEl = useRef(null);
+const GridItemOverlay = ({ play, children, type = 'right' }: { play: boolean; children: React.ReactNode, type: 'left' | 'right' | 'full' }) => {
+  const bg = useRef(null);
+  const content = useRef(null);
   const timeline = useMemo(() => gsap.timeline({
     paused: true,
     defaults: { duration: 0.4 }
@@ -190,14 +206,20 @@ const GridItemSidebar = ({ play }: { play: boolean }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      timeline.to(sideEl.current, {
-        opacity: 1,
-        delay: 0.3,
-        ease: "power3.easeInOut"
-      })
+      timeline
+        .to(bg.current, {
+          opacity: 1,
+          delay: 0.3,
+          ease: "power3.easeInOut"
+        })
+        .to(content.current, {
+          opacity: 1,
+          translateY: '0',
+          ease: "power3.easeInOut"
+        })
     });
     return () => ctx.revert();
-  }, [timeline, play])
+  }, [timeline])
 
   useEffect(() => {
     if (play) {
@@ -206,12 +228,27 @@ const GridItemSidebar = ({ play }: { play: boolean }) => {
       timeline.reverse()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [play, timeline])
+  }, [play])
 
-  return play ? <div
-    ref={sideEl}
-    className='absolute h-full right-0 top-0 bg-black bg-opacity-50 w-1/2 opacity-0'
+  let typeClass = '';
+  switch (type) {
+    case 'full':
+      typeClass = 'left-0 w-full';
+      break;
+    case 'left':
+      typeClass = 'left-0 w-1/2';
+      break;
+    default:
+      typeClass = 'right-0 w-1/2';
+      break;
+  }
+
+  return <div
+    ref={bg}
+    className={`absolute h-full top-0 bg-black bg-opacity-50 opacity-0 flex justify-center items-center px-[40px] ${typeClass}`}
   >
-    test
-  </div> : <></>;
+    <div ref={content} style={{ transform: 'translateY(30px)', opacity: 0 }}>
+      {children}
+    </div>
+  </div>;
 }
