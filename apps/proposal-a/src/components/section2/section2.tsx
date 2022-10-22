@@ -8,44 +8,46 @@ import Img from 'comp/img'
 const Section2 = () => {
   return (
     <section>
-      <Swiper
-        effect={"coverflow"}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={"auto"}
-        slideToClickedSlide={true}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: -160,
-          depth: 50,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        loop={true}
-        modules={[EffectCoverflow, Autoplay]}
-        autoplay={{
-          delay: 3000,   // 시간 설정
-          disableOnInteraction: false,  // false로 설정하면 스와이프 후 자동 재생이 비활성화 되지 않음
-        }}
-        className="py-[323px]"
-      >
-        {[...new Array(3)].map((_, index) =>
-          <SwiperSlide key={index} style={{ width: '1020px', height: '600px' }}>
-            {({ isActive }) => (
-              <>
-                <Img name={`s2-s${index + 1}`} />
-                <div className="absolute w-full h-full top-0 left-0 flex justify-center">
-                  <div className='w-full h-full max-w-[1020px] max-h-[600px]'>
-                    <TextSlide play={isActive} index={index + 1}>
-                      <div className='w-full h-full flex justify-center items-center'>
-                      </div>
-                    </TextSlide>
+      <div className="container max-w-[2440px] mx-auto">
+        <Swiper
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={"auto"}
+          slideToClickedSlide={true}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: -160,
+            depth: 50,
+            modifier: 1,
+            slideShadows: false,
+          }}
+          loop={true}
+          modules={[EffectCoverflow, Autoplay]}
+          autoplay={{
+            delay: 3000,   // 시간 설정
+            disableOnInteraction: false,  // false로 설정하면 스와이프 후 자동 재생이 비활성화 되지 않음
+          }}
+          className="py-[323px]"
+        >
+          {[...new Array(3)].map((_, index) =>
+            <SwiperSlide key={index} style={{ width: '1020px', height: '600px' }}>
+              {({ isActive }) => (
+                <>
+                  <Img name={`s2-s${index + 1}`} />
+                  <div className="absolute w-full h-full top-0 left-0 flex justify-center">
+                    <div className='w-full h-full max-w-[1020px] max-h-[600px]'>
+                      <TextSlide play={isActive} index={index + 1}>
+                        <div className='w-full h-full flex justify-center items-center'>
+                        </div>
+                      </TextSlide>
+                    </div>
                   </div>
-                </div>
-              </>
-            )}
-          </SwiperSlide>)}
-      </Swiper>
+                </>
+              )}
+            </SwiperSlide>)}
+        </Swiper>
+      </div>
     </section >
   )
 }
