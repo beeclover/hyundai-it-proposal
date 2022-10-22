@@ -69,10 +69,7 @@ const Section4 = () => {
             <SwiperSlide key={index} style={{ width: `${1920 - 240}px`, height: '580px' }} className={clsx({ 'z-20': slideActiveIndex == index })} >
               {({ isActive }) => <div className="container max-w-[calc(1920px-240px)] w-full flex">
                 <div className="relative">
-                  <div className='relative'>
-                    <Img name={`s4-s${index + 1}1`} />
-                    {!isActive && <div className='absolute w-full h-full bg-black opacity-40 top-0 left-0' />}
-                  </div>
+                  <Img name={`s4-s${index + 1}1`} className={clsx({ 'opacity-40': !isActive })} />
                   <div className={clsx(`absolute right-0 translate-x-full top-0 flex h-full items-center`, {
                     'z-20': isActive
                   })}>
