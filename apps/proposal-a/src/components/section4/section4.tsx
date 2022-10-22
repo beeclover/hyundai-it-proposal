@@ -40,8 +40,6 @@ const TextSlide = ({ play, name }: { play: boolean; name: string; }) => {
 }
 
 const Section4 = () => {
-  const [firstSwiper, setFirstSwiper] = useState<SwiperCore>();
-  const [secondSwiper, setSecondSwiper] = useState<SwiperCore>();
   return (
     <section>
       <div className="container mx-auto mt-[278px]">
