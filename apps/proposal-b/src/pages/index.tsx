@@ -11,7 +11,8 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="xl:max-w-[1920px] mx-auto">
-        <img src={`${process.env.NEXT_PUBLIC_BASEPATH}/img/01.jpg`} alt="" />
+        <img src={`${process.env.NODE_ENV !== 'development' ? process.env.NEXT_PUBLIC_BASEPATH : ''}/img/B_현대IT_main_01.jpg`} alt="" />
+        <img src={`${process.env.NODE_ENV !== 'development' ? process.env.NEXT_PUBLIC_BASEPATH : ''}/img/B_현대IT_main_02.jpg`} alt="" />
       </div>
     </>
   )

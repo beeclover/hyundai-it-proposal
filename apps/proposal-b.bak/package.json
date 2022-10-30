@@ -1,11 +1,11 @@
 {
-  "name": "proposal-b.back",
+  "name": "proposal-b-bak",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/proposal-b/",
+    "build": "tsc && vite build --base=/proposal-b-bak/",
     "preview": "./node_modules/.bin/vite preview"
   },
   "dependencies": {

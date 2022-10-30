@@ -4,7 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig((env) => {
-  const base = env.mode === 'production' ? '/proposal-b/' : '/';
+  const base = env.mode === 'production' ? '/proposal-b-bak/' : '/';
   return {
     base,
     plugins: [react(), tsconfigPaths()]
